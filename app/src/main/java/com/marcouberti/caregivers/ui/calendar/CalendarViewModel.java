@@ -7,6 +7,8 @@ import com.marcouberti.caregivers.CaregiversApplication;
 import com.marcouberti.caregivers.db.entity.pojo.SlotCaregiver;
 import com.marcouberti.caregivers.repository.CalendarRepository;
 import com.marcouberti.caregivers.util.Constants;
+import com.marcouberti.caregivers.worker.AutoFillWorker;
+import com.marcouberti.caregivers.worker.FetchAllCaregiversWorker;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -19,6 +21,11 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MediatorLiveData;
 import androidx.lifecycle.MutableLiveData;
+import androidx.work.Data;
+import androidx.work.ExistingWorkPolicy;
+import androidx.work.OneTimeWorkRequest;
+import androidx.work.WorkContinuation;
+import androidx.work.WorkManager;
 
 public class CalendarViewModel extends AndroidViewModel {
 
@@ -97,6 +104,30 @@ public class CalendarViewModel extends AndroidViewModel {
 
     public void onDateChange(Date date) {
         mObservableDate.setValue(date);
+    }
+
+    public void onAutoFillTap() {
+        Data params = new Data.Builder().putLong("DATE_TS",
+                getDate().getValue().getTime()).build();
+
+        final String JOB_GROUP_NAME = "AUTO_FILL_WORK";
+
+        OneTimeWorkRequest fetchAllCaregiversWork =
+                new OneTimeWorkRequest.Builder(FetchAllCaregiversWorker.class)
+                        .build();
+
+        OneTimeWorkRequest autoFillWork =
+                new OneTimeWorkRequest.Builder(AutoFillWorker.class)
+                        .setInputData(params)
+                        .build();
+
+        final WorkManager workManager = WorkManager.getInstance();
+
+        // only one at the time, sequentially to avoid db conflicts
+        WorkContinuation work = workManager
+                .beginUniqueWork(JOB_GROUP_NAME, ExistingWorkPolicy.REPLACE, fetchAllCaregiversWork)
+                .then(autoFillWork);
+        work.enqueue();
     }
 
     class TimeSlot {

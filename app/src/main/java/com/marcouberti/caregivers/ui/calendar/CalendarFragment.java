@@ -45,7 +45,7 @@ import java.util.List;
 
 public class CalendarFragment extends Fragment {
 
-    private CalendarViewModel mViewModel;
+    CalendarViewModel mViewModel;
     private CalendarRouter router = new CalendarRouter();
 
     private Toolbar toolbar;
@@ -99,27 +99,7 @@ public class CalendarFragment extends Fragment {
     }
 
     private void runAutoFillWorker() {
-        Data params = new Data.Builder().putLong("DATE_TS",
-                mViewModel.getDate().getValue().getTime()).build();
-
-        final String JOB_GROUP_NAME = "AUTO_FILL_WORK";
-
-        OneTimeWorkRequest fetchAllCaregiversWork =
-                new OneTimeWorkRequest.Builder(FetchAllCaregiversWorker.class)
-                        .build();
-
-        OneTimeWorkRequest autoFillWork =
-                new OneTimeWorkRequest.Builder(AutoFillWorker.class)
-                        .setInputData(params)
-                        .build();
-
-        final WorkManager workManager = WorkManager.getInstance();
-
-        // only one at the time, sequentially to avoid db conflicts
-        WorkContinuation work = workManager
-                .beginUniqueWork(JOB_GROUP_NAME, ExistingWorkPolicy.REPLACE, fetchAllCaregiversWork)
-                .then(autoFillWork);
-        work.enqueue();
+        mViewModel.onAutoFillTap();
     }
 
     private void displayDatePicker() {

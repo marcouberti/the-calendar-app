@@ -1,3 +1,4 @@
+
 # The calendar
 
 Manage the schedules of a set of **caregivers** in a hospital including an **auto fill** feature. The auto-fill feature has the following  constraints:
@@ -7,7 +8,7 @@ Manage the schedules of a set of **caregivers** in a hospital including an **aut
 - max 5h/week per caregiver ( max 1h/week of overtime)
 - if multiple caregivers are eligible follow this priority scale: no overtime, working the same day, nearest room/hour, worked less hours in the past 4 weeks 
 
-<img src="/imgs/screen_6.png" width="200"> <img src="/imgs/screen_11.png" width="200"> <img src="/imgs/screen_4.png" width="200"> <img src="/imgs/screen_9.png" width="200">
+> <img src="/imgs/screen_6.png" width="200"> <img src="/imgs/screen_11.png" width="200"> <img src="/imgs/screen_4.png" width="200"> <img src="/imgs/screen_9.png" width="200">
 
 
 # The project
@@ -68,11 +69,11 @@ I used Retrofit 2 as the HTTP client because it is easy to setup.
 
 - *App shortcuts*. If running on Android N+ if you long tap on the app icon a shortcut appears. You can also pin this shortcut to your home page to a direct access to the calendar.
 
-<img src="/imgs/screen_1.png" width="200"> <img src="/imgs/screen_2.png" width="200">
+> <img src="/imgs/screen_1.png" width="200"> <img src="/imgs/screen_2.png" width="200">
 
 # Testing
 
-You can run local unit tests and UI/Instrumentation tests directly from Android Studio or from the command line.
+You can run local unit tests and UI/Instrumentation tests directly from Android Studio or from the command line. 
 
 ## Unit Test
 
@@ -82,13 +83,17 @@ To run local unit tests from the command line, go to the project root directory 
 
 HTML test result files: `./app/build/reports/tests/` directory.
 
+> <img src="/imgs/unit_tests.png" width="500"> 
+
 ## UI/Instrumentation Tests
 
 To run UI/Instrumentation tests from the command line, go to the project root directory and run this command:
 
 > ./gradlew connectedAndroidTest
 
-HTML test result files:`./app/build/outputs/reports/androidTests/connected/`directory.
+HTML test result files:`./app/build/reports/androidTests/connected/`directory.
+
+> <img src="/imgs/ui_instrumentation_tests.png" width="500"> 
 
 # Further Improvements
 
