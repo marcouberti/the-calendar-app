@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".app.settings.changepassword.ChangePasswordActivity">
+
+    <item android:id="@+id/action_prev_day" android:title="@string/prev_day"
+        android:orderInCategory="1" app:showAsAction="always" android:icon="@drawable/ic_prev_arrow"/>
+
+    <item android:id="@+id/action_next_day" android:title="@string/next_day"
+        android:orderInCategory="1" app:showAsAction="always" android:icon="@drawable/ic_next_arrow"/>
+</menu>

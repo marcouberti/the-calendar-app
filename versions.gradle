@@ -1,0 +1,95 @@
+/**
+ * Shared file between builds so that they can all use the same dependencies and
+ * maven repositories.
+ **/
+ext.deps = [:]
+
+def versions = [:]
+versions.arch_core = "2.0.0"
+versions.room = "2.0.0"
+versions.lifecycle = "2.0.0"
+versions.support = "1.0.0"
+versions.junit = "4.12"
+versions.espresso = "3.1.0"
+versions.retrofit = "2.4.0"
+versions.mockito = "2.8.9"
+versions.mockito_android = "2.6.3"
+versions.constraint_layout = "2.0.0-alpha2"
+versions.glide = "4.8.0"
+versions.android_gradle_plugin = '3.2.1'
+versions.work = "1.0.0-alpha10"
+versions.lightweightstreams = "1.2.1"
+versions.testsupportjunit = "1.0.0"
+versions.testsupportcore = "1.0.0"
+versions.testsupporrunner = "1.1.0"
+
+def deps = [:]
+
+def support = [:]
+support.app_compat = "androidx.appcompat:appcompat:$versions.support"
+support.recyclerview = "androidx.recyclerview:recyclerview:$versions.support"
+support.cardview = "androidx.cardview:cardview:$versions.support"
+support.design = "com.google.android.material:material:$versions.support"
+deps.support = support
+
+def room = [:]
+room.runtime = "androidx.room:room-runtime:$versions.room"
+room.compiler = "androidx.room:room-compiler:$versions.room"
+deps.room = room
+
+def lifecycle = [:]
+lifecycle.extensions = "androidx.lifecycle:lifecycle-extensions:$versions.lifecycle"
+deps.lifecycle = lifecycle
+
+def retrofit = [:]
+retrofit.runtime = "com.squareup.retrofit2:retrofit:$versions.retrofit"
+retrofit.scalars = "com.squareup.retrofit2:converter-scalars:$versions.retrofit"
+deps.retrofit = retrofit
+
+def espresso = [:]
+espresso.core = "androidx.test.espresso:espresso-core:$versions.espresso"
+espresso.contrib = "androidx.test.espresso:espresso-contrib:$versions.espresso"
+espresso.intents = "androidx.test.espresso:espresso-intents:$versions.espresso"
+deps.espresso = espresso
+
+def mockito = [:]
+mockito.core = "org.mockito:mockito-core:$versions.mockito"
+mockito.android = "org.mockito:mockito-android:$versions.mockito_android"
+deps.mockito = mockito
+
+def glide = [:]
+glide.runtime = "com.github.bumptech.glide:glide:$versions.glide"
+glide.compiler = "com.github.bumptech.glide:compiler:$versions.glide"
+deps.glide = glide
+
+def testsupport = [:]
+testsupport.junit = "androidx.test.ext:junit:$versions.testsupportjunit"
+testsupport.runner = "androidx.test:runner:$versions.testsupportrunner"
+testsupport.testing = "android.arch.core:core-testing:$versions.testsupportcore"
+deps.testsupport = testsupport
+
+deps.lightweightstreams = "com.annimon:stream:$versions.lightweightstreams"
+deps.json = "org.json:json:20140107"
+deps.constraint_layout = "androidx.constraintlayout:constraintlayout:$versions.constraint_layout"
+deps.junit = "junit:junit:$versions.junit"
+deps.android_gradle_plugin = "com.android.tools.build:gradle:$versions.android_gradle_plugin"
+ext.deps = deps
+
+def build_versions = [:]
+build_versions.min_sdk = 14
+build_versions.target_sdk = 28
+build_versions.build_tools = "28.0.3"
+ext.build_versions = build_versions
+
+def work = [:]
+work.runtime = "android.arch.work:work-runtime:$versions.work"
+deps.work = work
+
+ext.deps = deps
+
+def addRepos(RepositoryHandler handler) {
+    handler.google()
+    handler.jcenter()
+    handler.maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+}
+ext.addRepos = this.&addRepos

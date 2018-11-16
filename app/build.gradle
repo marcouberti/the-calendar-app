@@ -1,0 +1,77 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion build_versions.target_sdk
+    buildToolsVersion build_versions.build_tools
+
+    defaultConfig {
+        applicationId "com.marcouberti.caregivers"
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Support libraries
+    implementation deps.support.app_compat
+    implementation deps.support.design
+    implementation deps.support.cardview
+    implementation deps.support.recyclerview
+
+    // Java 8 Streams
+    implementation deps.lightweightstreams
+
+    // JSON
+    implementation deps.json
+
+    // Glide
+    implementation deps.glide.runtime
+    annotationProcessor deps.glide.compiler
+
+    // Architecture components
+    implementation deps.lifecycle.extensions
+    implementation deps.room.runtime
+    annotationProcessor deps.room.compiler
+    implementation deps.work.runtime
+
+    // Constraints Layout
+    implementation deps.constraint_layout
+
+    // Retrofit
+    implementation deps.retrofit.runtime
+    implementation deps.retrofit.scalars
+
+    // Unit tests
+    testImplementation deps.junit
+    testImplementation deps.mockito.core
+
+    // Test Support
+    androidTestImplementation deps.testsupport.junit
+    androidTestImplementation deps.testsupport.runner
+    androidTestImplementation deps.testsupport.testing
+
+    // Espresso UI Testing
+    androidTestImplementation deps.mockito.android
+    androidTestImplementation deps.espresso.core
+    androidTestImplementation deps.espresso.contrib
+    androidTestImplementation deps.espresso.intents
+}

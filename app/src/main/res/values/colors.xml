@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#B41D42</color>
+    <color name="colorPrimaryDark">#7e001c</color>
+    <color name="colorAccent">#B41D42</color>
+    <color name="colorTransparent">#00000000</color>
+    <color name="item_bg">#ffffff</color>
+    <color name="item_bg_pressed">#7fbfd9d9</color>
+    <color name="item_separator">#7fbfd9d9</color>
+    <color name="colorSuccess">#2CA969</color>
+    <color name="white">#ffffff</color>
+    <color name="button_generic_bg">@color/colorPrimary</color>
+    <color name="button_generic_bg_selected">@color/colorAccent</color>
+    <color name="button_generic_bg_pressed">#7fbfd9d9</color>
+    <color name="button_generic_bg_disabled">#148fc3c3</color>
+</resources>

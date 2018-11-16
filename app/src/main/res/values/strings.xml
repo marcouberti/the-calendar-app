@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Caregivers</string>
+    <string name="caregivers_list">Caregivers</string>
+    <string name="caregiver_details">Caregiver details</string>
+    <string name="slot_detail">Slot details</string>
+    <string name="calendar">Calendar</string>
+    <string name="no_room_available">No room available</string>
+    <string name="save">Save</string>
+    <string name="room_is_busy">This room is busy</string>
+    <string name="invalid_data">Please fill all the data</string>
+    <string name="busy">busy</string>
+    <string name="available">available</string>
+    <string name="room">Room</string>
+    <string name="rooms_list">Select a room</string>
+    <string name="database_error">Something went wrong, please retry</string>
+    <string name="delete_item">Delete</string>
+    <string name="patient_name">Patient name</string>
+    <string name="tomorrow">Tomorrow</string>
+    <string name="yesterday">Yesterday</string>
+    <string name="today">Today</string>
+    <string name="assignment_details">Marco Uberti assignment</string>
+    <string name="auto_fill">Auto fill day</string>
+    <string name="name">Name</string>
+    <string name="surname">Surname</string>
+    <string name="select_a_caregiver">Select a caregiver</string>
+    <string name="prev_day">Previous day</string>
+    <string name="next_day">Next day</string>
+    <string name="no_internet_connection">No internet connection</string>
+    <string name="empty_list">The caregivers list is still empty, please check your internet connection and try again.</string>
+</resources>
