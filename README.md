@@ -7,6 +7,9 @@ Manage the schedules of a set of **caregivers** in a hospital including an **aut
 - max 5h/week per caregiver ( max 1h/week of overtime)
 - if multiple caregivers are eligible follow this priority scale: no overtime, working the same day, nearest room/hour, worked less hours in the past 4 weeks 
 
+<img src="/imgs/screen_6.png" width="200"> <img src="/imgs/screen_11.png" width="200"> <img src="/imgs/screen_4.png" width="200"> <img src="/imgs/screen_9.png" width="200">
+
+
 # The project
 
 This is a native Android app developed in **Java**. The app runs in **both portrait and landscape** screen orientations. The app runs on devices with Android 4.0 and up (API level 14).
@@ -22,7 +25,7 @@ This is a native Android app developed in **Java**. The app runs in **both portr
 
 # Architecture
 
-The project uses a **MVVM** architecture with the help of the new  **Android Architecture Components**. 
+The project uses a clean **MVVM** architecture with the help of the new  **Android Architecture Components**. 
 
 Each View (Activity/Fragment) has a **ViewModel** that exposes observable data through **LiveData** objects. ViewModels are *lifecycle aware* so we can have more robust and maintainable apps without all the well known Android lifecycle issues. 
 
@@ -30,7 +33,7 @@ LiveDatas are linked directly with DAO queries so that **the app reacts immediat
 
 Each ViewModel use the **Repositories** to access remote and/or local data. Depending on the specific use case each repository has **Dao** and/or **WebService** objects.
 
->For this small project there is no need to add additional layers, but maybe the case as soon the complexity will grow.
+>For this small project there is no need to add additional layers, but maybe the case as soon the complexity will grow. In that case I will opt for adding **Use Case** layers where to place all the business logic.
 
 In order to have readable and maintainable code I also attached a **Routers** to each View so that you can immediately understand the app navigation flows starting from each View without deep dive into the logic code.
 
@@ -65,6 +68,8 @@ I used Retrofit 2 as the HTTP client because it is easy to setup.
 
 - *App shortcuts*. If running on Android N+ if you long tap on the app icon a shortcut appears. You can also pin this shortcut to your home page to a direct access to the calendar.
 
+<img src="/imgs/screen_1.png" width="200"> <img src="/imgs/screen_2.png" width="200">
+
 # Testing
 
 You can run local unit tests and UI/Instrumentation tests directly from Android Studio or from the command line.
@@ -96,9 +101,9 @@ HTML test result files:`./app/build/outputs/reports/androidTests/connected/`dire
 
 # Links
 
-  **[Android Architecture Components](https://developer.android.com/topic/libraries/architecture/)**, on the Android Developers website
-  **[Room Persistence Library](https://developer.android.com/topic/libraries/architecture/room)**, on the Android Developers website
- **[Android Testing](https://developer.android.com/tools/testing/index.html)**, on the Android Developers website
-  **[Android Testing Support Library](https://google.github.io/android-testing-support-library/)**, on the ATSL website
-   **[Retrofit](https://square.github.io/retrofit/)**, HTTP client library
- **[Mockito](http://mockito.org/)**, mocking framework for unit tests in Java
+**[Android Architecture Components](https://developer.android.com/topic/libraries/architecture/)**, on the Android Developers website  
+**[Room Persistence Library](https://developer.android.com/topic/libraries/architecture/room)**, on the Android Developers website  
+**[Android Testing](https://developer.android.com/tools/testing/index.html)**, on the Android Developers website  
+**[Android Testing Support Library](https://google.github.io/android-testing-support-library/)**, on the ATSL website  
+**[Retrofit](https://square.github.io/retrofit/)**, HTTP client library  
+**[Mockito](http://mockito.org/)**, mocking framework for unit tests in Java  
