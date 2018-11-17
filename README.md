@@ -17,7 +17,7 @@ This is a native Android app developed in **Java**. The app runs in **both portr
 
 ## Setup instructions
 
-- Clone the Git repo from [here](https://github.com/marcouberti?tab=repositories) or alternatively download the project as .zip file and extract on your machine.
+- Clone the Git repo from [here](https://github.com/marcouberti/the-calendar-app) or alternatively download the project as .zip file and extract on your machine.
 - Open the project with Android Studio (version 3.2.1+ suggested) choosing "Open Existing Project..." and selecting the folder containing the *versions.gradle* file
 - Synch Gradle
 - Make Project
